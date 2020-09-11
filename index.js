@@ -223,23 +223,26 @@ console.log(artists[9]);
  * For example, if getArtistByIndex is invoked with the artists dataset and the number 0,
  * it will return `The artist at index 0 is Amedeo Modigliani`.
 */
-function getArtistByIndex(array, index) {
-    array.push(`The artist at index ${array[index].id} is ${array[index].name}.`)
-    return array
-  }
-  console.log(getArtistByIndex(artists, 5));
+
+
+ function getArtistByIndex(array, index) {
+     array.push(`The artist at index ${array[index].id} is ${array[index].name}.`)
+   }
+   console.log(getArtistByIndex(artists, 5));
   /**
 
 
 /* Task 4: Create a function called get20s() that takes data as an argument and returns an array with names of artists who were born in and died in 20th century (1900-2000) example born in 1901 and died in 1959 - included / born in 1889 and died in 1925 not included - should return ["Salvador Dali", "Frida Kahlo"]*/
+
+
 let century = [];
 function get20s(years){
   
-  for(let i = 0; i < artists.length; i++) {
-    if (artists[i].years >= 1900 || artists[i].years <= 2000) {
-      century.filter(artists[i]);
-    }
-  }
+for(let i = 0; i < artists.length; i++) {
+if (artists[i].years >= 1900 || artists[i].years <= 2000) {
+century.filter(artists[i]);
+}
+
 console.log("Before" + century);
 
 
@@ -254,10 +257,14 @@ console.log("Before" + century);
  * Note that sucessfully invoking this function multiple times without refreshing your browser will continuously remove artists from the array until there are none left. If you refresh your browser, the data will reset.  
 */
 function removeArtist(arr, index) {
-    /* code here */
-  }
-  
- 
+  for(let i = 0; i < arr.length; i++) {
+    if(arr[i] === index) {
+        arr.splice(0, 1);
+    }
+}
+return arr;
+}
+console.log(removeArtist(artists[i], 0));
 
 /**
 /* Task 6: Create a function called `addArtist` that can accept an object of information and add it to the artists array. Then, add a 21st artist to the array (you) with custom information!👩‍🎨👨‍🎨
@@ -272,11 +279,11 @@ bio: Add 1-2 sentences (or use lorem ipsum)
 
 At the end, this function should return the new array with information added"*/
 
-function addArtist(/* Code here */){
+function addArtist(id, name, years, genre, nationality, bio){
 
-    /* Code here */
-
-  }
+    return {id, name, years, genre, nationality, bio}
+}
+console.log(21, "Bria", "1995 - current", "Mixed Impressionist", "Mixed", "UX Engineer struggling to find their way.")
 
 /* Task 7: Create a function called lotsOfArt() that takes one argument: 
 
@@ -286,12 +293,15 @@ and returns an array with names of artists who painted more than 100 paintings.
 
 For example lotsOfArt(artists); will return ["Amedeo Modigliani", "Rene Magritte", ..."Albrecht Dürer"]*/
 
-function lotsOfArt(/* Code here */){
-
-  /* Code here */
+function lotsOfArt(arr){
+    
+  for(let i = 0; i < arr.length; i++) {
+  if (arr[i].paintings < 100) {
+  return arr;
+  }
 
 }
-
+console.log(lotsOfArt(artists));
 
 
 // 🎨🎨 STRETCH 🎨🎨//
@@ -333,4 +343,4 @@ function randomize(/* Code here */){
   }
 
 
- /* STRETCH 3: Use advanced array methods (.map, .reduce, .filer) to refactor your MVP code (create an array of all artists born in the 1900s with .filter, for example) */
+  // STRETCH 3: Use advanced array methods (.map, .reduce, .filer) to refactor your MVP code (create an array of all artists born in the 1900s with .filter, for example) 
